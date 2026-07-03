@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivesh Kommalapati - AI Systems & Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">SK</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#resume" class="nav-link">Resume</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <img src="assets/images/profile.jpeg" alt="Sivesh Kommalapati" class="hero-profile-img" onerror="this.src='https://via.placeholder.com/400?text=Upload+Profile+Image'">
+            </div>
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="accent">Sivesh Kommalapati</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="typing-effect"></span>
+                </p>
+                <p class="hero-description">
+                    Passionate Computer Science Engineering student specializing in AI Systems & Visual Intelligence 
+                    with expertise in Java, React, Spring Boot, Machine Learning, and scalable application development.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">Get In Touch</button>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/sivesh-kommalapati-75149232b/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/2300030863" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-card glass-effect">
+                    <h3>Career Objective</h3>
+                    <p>
+                        Aspiring AI Systems Engineer and Full Stack Developer seeking internship and placement opportunities 
+                        to contribute to innovative projects while developing expertise in building scalable, intelligent systems 
+                        that solve real-world problems.
+                    </p>
+                </div>
+                <div class="about-card glass-effect">
+                    <h3>Education</h3>
+                    <p>
+                        <strong>KL University</strong><br>
+                        B.Tech in Computer Science & Engineering<br>
+                        Specialization: AI Systems & Visual Intelligence<br>
+                        <span class="highlight">CGPA: 9.0/10</span><br>
+                        2023 – 2027
+                    </p>
+                </div>
+                <div class="about-card glass-effect">
+                    <h3>Expertise</h3>
+                    <p>
+                        Full Stack Development • AI/ML Systems • Backend Architecture • 
+                        Database Design • Cloud Technologies • System Optimization • 
+                        Problem Solving
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category glass-effect">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag glow">Java</span>
+                        <span class="skill-tag glow">Python</span>
+                        <span class="skill-tag glow">C</span>
+                        <span class="skill-tag glow">C++</span>
+                        <span class="skill-tag glow">JavaScript</span>
+                        <span class="skill-tag glow">SQL</span>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="skill-category glass-effect">
+                    <h3>Web Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag glow">React</span>
+                        <span class="skill-tag glow">Spring Boot</span>
+                        <span class="skill-tag glow">Node.js</span>
+                        <span class="skill-tag glow">REST APIs</span>
+                        <span class="skill-tag glow">HTML/CSS</span>
+                        <span class="skill-tag glow">Responsive Design</span>
+                    </div>
+                </div>
+
+                <!-- Databases & Servers -->
+                <div class="skill-category glass-effect">
+                    <h3>Databases & Servers</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag glow">MySQL</span>
+                        <span class="skill-tag glow">SQL Optimization</span>
+                        <span class="skill-tag glow">Database Design</span>
+                        <span class="skill-tag glow">Apache Tomcat</span>
+                        <span class="skill-tag glow">Query Optimization</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Platforms -->
+                <div class="skill-category glass-effect">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag glow">Git & GitHub</span>
+                        <span class="skill-tag glow">Postman</span>
+                        <span class="skill-tag glow">IntelliJ IDEA</span>
+                        <span class="skill-tag glow">VS Code</span>
+                        <span class="skill-tag glow">Figma</span>
+                    </div>
+                </div>
+
+                <!-- AI/ML -->
+                <div class="skill-category glass-effect">
+                    <h3>AI/ML & Automation</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag glow">Machine Learning</span>
+                        <span class="skill-tag glow">NLP</span>
+                        <span class="skill-tag glow">Data Analysis</span>
+                        <span class="skill-tag glow">TensorFlow</span>
+                        <span class="skill-tag glow">Python (NumPy, Pandas)</span>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="skill-category glass-effect">
+                    <h3>Certifications</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag glow">Oracle OCI</span>
+                        <span class="skill-tag glow">UiPath RPA</span>
+                        <span class="skill-tag glow">Automation Anywhere</span>
+                        <span class="skill-tag glow">Linguaskill English</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card glass-effect">
+                    <div class="project-header">
+                        <h3>Budget Planner Web Application</h3>
+                        <div class="project-icons">
+                            <a href="https://github.com/2300030863/BudgectPlanner.git" target="_blank" style="color: inherit; text-decoration: none;">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed a full-stack financial management application that helps users manage income, 
+                        expenses, and budgeting efficiently with secure authentication and real-time analytics.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Spring Boot</span>
+                        <span class="tech-badge">MySQL</span>
+                    </div>
+                    <div class="project-features">
+                        <p>✓ Secure JWT Authentication</p>
+                        <p>✓ Income & Expense Tracking</p>
+                        <p>✓ Financial Analytics Dashboard</p>
+                        <p>✓ REST API Integration</p>
+                        <p>✓ Optimized SQL Queries</p>
+                        <p>✓ Real-time Financial Insights</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-effect">
+                    <div class="project-header">
+                        <h3>Expense Tracker System</h3>
+                        <div class="project-icons">
+                            <a href="https://github.com/2300030863/Expense-Tracker-Fullstack-Using-Spring-Boot.git" target="_blank" style="color: inherit; text-decoration: none;">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Created a web-based expense tracking system to monitor daily spending and improve 
+                        personal financial planning with intuitive UI and powerful data visualization.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Spring Boot</span>
+                        <span class="tech-badge">MySQL</span>
+                    </div>
+                    <div class="project-features">
+                        <p>✓ Expense Categorization</p>
+                        <p>✓ Monthly Reports</p>
+                        <p>✓ Budget Tracking</p>
+                        <p>✓ Data Visualization</p>
+                        <p>✓ Applied OOP Principles</p>
+                        <p>✓ Enhanced User Experience</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-effect">
+                    <div class="project-header">
+                        <h3>HR Intelligence & Interview Automation</h3>
+                        <div class="project-icons">
+                            <a href="https://github.com/2300030863/Human_Resources_Intelligent_Candidate_Mathching_Interview_Automation.git" target="_blank" style="color: inherit; text-decoration: none;">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Built an AI-powered HR automation platform for resume screening, candidate matching, 
+                        and interview evaluation with intelligent recommendation systems.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">NLP</span>
+                        <span class="tech-badge">Machine Learning</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Spring Boot</span>
+                    </div>
+                    <div class="project-features">
+                        <p>✓ Resume Parsing & NLP</p>
+                        <p>✓ Skill Extraction</p>
+                        <p>✓ Candidate Ranking</p>
+                        <p>✓ Interview Automation</p>
+                        <p>✓ Recruiter Analytics Dashboard</p>
+                        <p>✓ Real-time Performance Evaluation</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card glass-effect">
+                    <div class="project-header">
+                        <h3>Object Detection + Scene Summary</h3>
+                        <div class="project-icons">
+                            <a href="https://github.com/2300030863/Object-Detection-Pulse-Scene-Summary-Project.git" target="_blank" style="color: inherit; text-decoration: none;">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed an advanced computer vision and NLP application utilizing YOLOv8 and YOLOv11 to perform real-time object detection and generate intelligent scene summaries.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">YOLOv8 & v11</span>
+                        <span class="tech-badge">Computer Vision</span>
+                        <span class="tech-badge">NLP</span>
+                    </div>
+                    <div class="project-features">
+                        <p>✓ Real-time Object Detection</p>
+                        <p>✓ Intelligent Scene Summarization</p>
+                        <p>✓ Custom Model Integration</p>
+                        <p>✓ Natural Language Processing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education & Achievements</h2>
+            <div class="timeline">
+                <!-- Education Timeline -->
+                <div class="timeline-item glass-effect has-image">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content flex-content">
+                        <div class="timeline-image-container">
+                            <img src="assets/images/kl-university.webp" alt="KL University" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>B.Tech in Computer Science & Engineering</h3>
+                            <p class="timeline-subtitle">KL University (2023 - 2027)</p>
+                            <p class="timeline-address"><i class="fas fa-map-marker-alt"></i> Green Fields, Vaddeswaram, Guntur District, Andhra Pradesh 522502, India.</p>
+                            <p><strong>Specialization:</strong> AI Systems & Visual Intelligence</p>
+                            <p class="highlight"><strong>CGPA: 9.0 / 10.0</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item glass-effect has-image">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content flex-content">
+                        <div class="timeline-image-container">
+                            <img src="assets/images/bhashyam-inter.webp" alt="Bhashyam Junior College" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Intermediate (MPC)</h3>
+                            <p class="timeline-subtitle">Bhashyam Junior College (2021 - 2023)</p>
+                            <p class="timeline-address"><i class="fas fa-map-marker-alt"></i> Gorantla, Guntur, Andhra Pradesh, India</p>
+                            <p><strong>Score: 84%</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item glass-effect has-image">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content flex-content">
+                        <div class="timeline-image-container">
+                            <img src="assets/images/bhashyam-10th.jpg" alt="Bhashyam High School" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>10th Grade (SSC)</h3>
+                            <p class="timeline-subtitle">Bhashyam High School, Blue Campus</p>
+                            <p class="timeline-address"><i class="fas fa-map-marker-alt"></i> Gorantla, Guntur, Andhra Pradesh, India</p>
+                            <p class="highlight"><strong>Score: 600 / 600</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Academic Excellence -->
+                <div class="timeline-item glass-effect">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Academic Excellence & Specialization</h3>
+                        <p>✓ Maintained impressive 9.0 CGPA in Computer Science Engineering</p>
+                        <p>✓ Specialized in AI Systems & Visual Intelligence</p>
+                        <p>✓ Strong foundation in Data Structures & Algorithms</p>
+                        <p>✓ Expert in OOP Concepts and DBMS</p>
+                    </div>
+                </div>
+                <!-- Full Stack Development -->
+                <div class="timeline-item glass-effect">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Full Stack Development Expertise</h3>
+                        <p>✓ Developed scalable web applications using React & Spring Boot</p>
+                        <p>✓ Proficient in MySQL & REST API Integration</p>
+                        <p>✓ Optimized SQL queries for enhanced performance</p>
+                        <p>✓ Applied structured backend architecture & debugging</p>
+                    </div>
+                </div>
+                <!-- AI & Machine Learning -->
+                <div class="timeline-item glass-effect">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>AI & Machine Learning Implementations</h3>
+                        <p>✓ Built intelligent automation systems using NLP & ML</p>
+                        <p>✓ Resume Parsing & Skill Extraction</p>
+                        <p>✓ Candidate Recommendation Systems</p>
+                        <p>✓ Real-time Performance Evaluation Systems</p>
+                    </div>
+                </div>
+                <!-- Certifications -->
+                <div class="timeline-item glass-effect">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Global Certifications</h3>
+                        <div class="certifications-grid">
+                            <!-- Cloud & Infrastructure -->
+                            <div class="cert-card glass-effect">
+                                <div class="cert-icon-container">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <div class="cert-details">
+                                    <span class="cert-category">Cloud & Infrastructure</span>
+                                    <h4>Oracle Cloud Infrastructure (OCI) Certified Architect</h4>
+                                    <a href="assets/images/Oracle Cloud Infrastructure 2025 Certified Architect Associate.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                                </div>
+                            </div>
+
+                            <!-- Microsoft Learn -->
+                            <div class="cert-card glass-effect">
+                                <div class="cert-icon-container">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div class="cert-details">
+                                    <span class="cert-category">Cloud & Infrastructure</span>
+                                    <h4>Microsoft Certified: Azure AI Engineer Associate</h4>
+                                    <a href="assets/images/Credentials - kommalapatisivesh-2991 _ Microsoft Learn.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                                </div>
+                            </div>
+
+                            <!-- RPA - Automation Anywhere -->
+                            <div class="cert-card glass-effect">
+                                <div class="cert-icon-container">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="cert-details">
+                                    <span class="cert-category">Robotic Process Automation</span>
+                                    <h4>Automation Anywhere RPA Certification</h4>
+                                    <a href="assets/images/Automation Anywhere.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                                </div>
+                            </div>
+
+                            <!-- Language Proficiency -->
+                            <div class="cert-card glass-effect">
+                                <div class="cert-icon-container">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div class="cert-details">
+                                    <span class="cert-category">Language Proficiency</span>
+                                    <h4>Linguaskill English Certification</h4>
+                                    <a href="assets/images/Linguaskill Agent Detail TRF.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-content glass-effect">
+                <div class="resume-actions">
+                    <p class="resume-text">View my full professional experience, education, and technical skills.</p>
+                    <a href="assets/resume.pdf/resume%20loyalty.pdf" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+                <div class="resume-preview">
+                    <!-- The iframe embeds the PDF. If the browser doesn't support PDF embedding, it provides a fallback. -->
+                    <iframe src="assets/resume.pdf/resume%20loyalty.pdf" width="100%" height="600px" style="border: none; border-radius: 8px;">
+                        <p>Your browser does not support PDFs. <a href="assets/resume.pdf/resume%20loyalty.pdf">Download the PDF</a>.</p>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <div class="contact-info glass-effect">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Email: <a href="mailto:siveshkommlapati9652@gmail.com">siveshkommlapati9652@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>Phone: <a href="tel:+91-XXXXXXXXXX">+91-XXXXXXXXXX</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <p><a href="https://www.linkedin.com/in/sivesh-kommalapati-75149232b/" target="_blank">LinkedIn</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <p><a href="https://github.com/2300030863" target="_blank">GitHub</a></p>
+                    </div>
+                </div>
+
+                <form class="contact-form glass-effect">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sivesh Kommalapati. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3"></script>
+</body>
+</html>
