@@ -1,11 +1,11 @@
 // ==================== TYPING ANIMATION ==================== //
 const typingElement = document.querySelector('.typing-effect');
 const phrases = [
-    'AI Systems & Full Stack Developer',
-    'Building Intelligent Solutions',
+    'Full Stack Java Developer',
+    'AI & Full Stack Developer',
     'Passionate Problem Solver',
     'Tech Innovator',
-    'Full Stack Engineer'
+    'Building Intelligent Solutions'
 ];
 
 let phraseIndex = 0;
@@ -104,7 +104,7 @@ function setupThreeJS() {
     // Create Floating Sphere
     const geometrySphere = new THREE.IcosahedronGeometry(1, 4);
     const materialSphere = new THREE.MeshPhongMaterial({
-        color: 0x00E5FF,
+        color: 0x06B6D4,
         emissive: 0x00B3CC,
         wireframe: false,
         shininess: 100
@@ -115,7 +115,7 @@ function setupThreeJS() {
     // Create Particles
     const particlesGeometry = new THREE.BufferGeometry();
     const particlesMaterial = new THREE.PointsMaterial({
-        color: 0x00E5FF,
+        color: 0x06B6D4,
         size: 0.02,
         sizeAttenuation: true
     });
@@ -132,11 +132,11 @@ function setupThreeJS() {
     scene.add(particles);
 
     // Lighting
-    const light1 = new THREE.DirectionalLight(0x00E5FF, 1);
+    const light1 = new THREE.DirectionalLight(0x06B6D4, 1);
     light1.position.set(5, 5, 5);
     scene.add(light1);
 
-    const light2 = new THREE.DirectionalLight(0x9D4EDD, 0.5);
+    const light2 = new THREE.DirectionalLight(0x3B82F6, 0.5);
     light2.position.set(-5, -5, 5);
     scene.add(light2);
 
@@ -270,7 +270,7 @@ if (contactForm) {
         const originalText = submitBtn.textContent;
         
         submitBtn.textContent = '✓ Message Sent!';
-        submitBtn.style.background = 'linear-gradient(135deg, #00E5FF, #9D4EDD)';
+        submitBtn.style.background = 'linear-gradient(135deg, #06B6D4, #3B82F6)';
         submitBtn.disabled = true;
 
         contactForm.reset();
@@ -286,7 +286,7 @@ if (contactForm) {
 // ==================== PARALLAX EFFECT ==================== //
 document.addEventListener('scroll', () => {
     const scrollPosition = window.pageYOffset;
-    const elements = document.querySelectorAll('.about-card, .skill-category, .project-card, .timeline-item, .resume-content');
+    const elements = document.querySelectorAll('.about-card, .skill-category, .project-card');
 
     elements.forEach((element, index) => {
         // Prevent excessive translation for items lower on the page
