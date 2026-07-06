@@ -7,8 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=14">
+    <link rel="stylesheet" href="style.css?v=16">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,6 +28,8 @@
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#resume" class="nav-link">Resume</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -180,6 +183,7 @@
                     <h3>Certifications</h3>
                     <div class="skill-list">
                         <span class="skill-tag glow">Oracle OCI</span>
+                        <span class="skill-tag glow">Azure AI Engineer</span>
                         <span class="skill-tag glow">UiPath RPA</span>
                         <span class="skill-tag glow">Automation Anywhere</span>
                         <span class="skill-tag glow">Linguaskill English</span>
@@ -399,60 +403,136 @@
                         <p>✓ Real-time Performance Evaluation Systems</p>
                     </div>
                 </div>
-                <!-- Certifications -->
-                <div class="timeline-item glass-effect">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Internships</h2>
+            <div class="timeline">
+                <!-- Internship Timeline -->
+                <div class="timeline-item glass-effect has-image highlight-item">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Global Certifications</h3>
-                        <div class="certifications-grid">
-                            <!-- Cloud & Infrastructure -->
-                            <div class="cert-card glass-effect">
-                                <div class="cert-icon-container">
-                                    <i class="fas fa-cloud"></i>
-                                </div>
-                                <div class="cert-details">
-                                    <span class="cert-category">Cloud & Infrastructure</span>
-                                    <h4>Oracle Cloud Infrastructure (OCI) Certified Architect</h4>
-                                    <a href="assets/images/Oracle Cloud Infrastructure 2025 Certified Architect Associate.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-                                </div>
-                            </div>
-
-                            <!-- Microsoft Learn -->
-                            <div class="cert-card glass-effect">
-                                <div class="cert-icon-container">
-                                    <i class="fab fa-microsoft"></i>
-                                </div>
-                                <div class="cert-details">
-                                    <span class="cert-category">Cloud & Infrastructure</span>
-                                    <h4>Microsoft Certified: Azure AI Engineer Associate</h4>
-                                    <a href="assets/images/Credentials - kommalapatisivesh-2991 _ Microsoft Learn.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-                                </div>
-                            </div>
-
-                            <!-- RPA - Automation Anywhere -->
-                            <div class="cert-card glass-effect">
-                                <div class="cert-icon-container">
-                                    <i class="fas fa-robot"></i>
-                                </div>
-                                <div class="cert-details">
-                                    <span class="cert-category">Robotic Process Automation</span>
-                                    <h4>Automation Anywhere RPA Certification</h4>
-                                    <a href="assets/images/Automation Anywhere.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-                                </div>
-                            </div>
-
-                            <!-- Language Proficiency -->
-                            <div class="cert-card glass-effect">
-                                <div class="cert-icon-container">
-                                    <i class="fas fa-language"></i>
-                                </div>
-                                <div class="cert-details">
-                                    <span class="cert-category">Language Proficiency</span>
-                                    <h4>Linguaskill English Certification</h4>
-                                    <a href="assets/images/Linguaskill Agent Detail TRF.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
-                                </div>
-                            </div>
+                    <div class="timeline-content flex-content">
+                        <div class="timeline-image-container" style="display: flex; align-items: center; justify-content: center; background: #fff;">
+                            <img src="assets/images/edu Skilles.pdf" alt="UiPath Internship" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fas fa-robot fa-3x" style="color: #06B6D4; display: none;"></i>
                         </div>
+                        <div class="timeline-text" style="width: 100%;">
+                            <h3>UiPath RPA Summer Intern</h3>
+                            <p class="timeline-subtitle">UiPath Academy / UiPath Student Program (Summer 2026)</p>
+                            <p class="timeline-address"><i class="fas fa-certificate"></i> <a href="assets/images/edu Skilles.pdf" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">View Certificate</a></p>
+                            <p>Completed a Summer Internship focused on Robotic Process Automation (RPA) using UiPath. Built automation workflows for web, desktop, Excel, and PDF processes.</p>
+                            
+                            <div class="read-more-content" id="internship-details">
+                                <p>Gained practical experience in UI automation, debugging, exception handling, and workflow optimization.</p>
+                                
+                                <h4 style="margin-top: 1rem; margin-bottom: 0.5rem; color: var(--text-primary);">Tech Stack:</h4>
+                                <div class="project-tech" style="margin-bottom: 1rem;">
+                                    <span class="tech-badge">UiPath Studio</span>
+                                    <span class="tech-badge">RPA</span>
+                                    <span class="tech-badge">Excel & Web Automation</span>
+                                    <span class="tech-badge">PDF Automation</span>
+                                    <span class="tech-badge">Selectors</span>
+                                    <span class="tech-badge">Exception Handling</span>
+                                </div>
+                                
+                                <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Highlights:</h4>
+                                <ul class="internship-highlights">
+                                    <li>Completed Summer Internship in UiPath RPA.</li>
+                                    <li>Developed automation bots for business processes.</li>
+                                    <li>Automated Excel, PDF, and web-based tasks.</li>
+                                    <li>Implemented robust exception handling and debugging.</li>
+                                    <li>Gained hands-on experience in workflow design and process automation.</li>
+                                </ul>
+                            </div>
+                            
+                            <button class="read-more-btn" onclick="toggleReadMore('internship-details', this)">
+                                Read More <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Global Certifications</h2>
+            <div class="certifications-grid">
+                <!-- Cloud & Infrastructure -->
+                <div class="cert-card glass-effect">
+                    <div class="cert-icon-container">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-category">Cloud & Infrastructure</span>
+                        <h4>Oracle Cloud Infrastructure (OCI) Certified Architect</h4>
+                        <a href="assets/images/Oracle Cloud Infrastructure 2025 Certified Architect Associate.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                    </div>
+                </div>
+
+                <!-- Microsoft Learn -->
+                <div class="cert-card glass-effect">
+                    <div class="cert-icon-container">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-category">Cloud & Infrastructure</span>
+                        <h4>Microsoft Certified: Azure AI Engineer Associate</h4>
+                        <a href="assets/images/Credentials - kommalapatisivesh-2991 _ Microsoft Learn.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                    </div>
+                </div>
+
+                <!-- RPA - Automation Anywhere -->
+                <div class="cert-card glass-effect">
+                    <div class="cert-icon-container">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-category">Robotic Process Automation</span>
+                        <h4>Automation Anywhere RPA Certification</h4>
+                        <a href="assets/images/Automation Anywhere.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                    </div>
+                </div>
+
+                <!-- Language Proficiency -->
+                <div class="cert-card glass-effect">
+                    <div class="cert-icon-container">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-category">Language Proficiency</span>
+                        <h4>Linguaskill English Certification</h4>
+                        <a href="assets/images/Linguaskill Agent Detail TRF.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                    </div>
+                </div>
+
+                <!-- RPA - UiPath -->
+                <div class="cert-card glass-effect">
+                    <div class="cert-icon-container">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-category">Robotic Process Automation</span>
+                        <h4>UiPath RPA Certification</h4>
+                        <a href="assets/images/edu Skilles.pdf" target="_blank" class="cert-btn"><i class="fas fa-file-pdf"></i> View Certificate</a>
+                    </div>
+                </div>
+
+                <!-- Microsoft AZ-900 -->
+                <div class="cert-card glass-effect">
+                    <div class="cert-icon-container" style="color: var(--accent-cyan);">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-category">Cloud & Infrastructure</span>
+                        <h4>Microsoft Certified: Azure Fundamentals (AZ-900)</h4>
+                        <span class="cert-btn" style="background: rgba(255, 255, 255, 0.05); color: #94a3b8; cursor: default; box-shadow: none;"><i class="fas fa-hourglass-half"></i> Coming Soon</span>
                     </div>
                 </div>
             </div>
@@ -528,6 +608,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=9"></script>
 </body>
 </html>

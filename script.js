@@ -285,6 +285,14 @@ if (contactForm) {
 
 // ==================== PARALLAX EFFECT ==================== //
 document.addEventListener('scroll', () => {
+    // Disable parallax on mobile to prevent cards from colliding vertically
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.about-card, .skill-category, .project-card').forEach(el => {
+            el.style.transform = '';
+        });
+        return;
+    }
+
     const scrollPosition = window.pageYOffset;
     const elements = document.querySelectorAll('.about-card, .skill-category, .project-card');
 
@@ -367,3 +375,122 @@ if ('IntersectionObserver' in window) {
 // Log for debugging (remove in production)
 console.log('Portfolio loaded successfully!');
 console.log('Welcome to Sivesh Kommalapati\'s Portfolio');
+
+// ==================== READ MORE TOGGLE ==================== //
+function toggleReadMore(contentId, btnElement) {
+    const content = document.getElementById(contentId);
+    if (!content) return;
+    
+    const isExpanded = content.classList.contains('expanded');
+    
+    if (isExpanded) {
+        content.classList.remove('expanded');
+        btnElement.classList.remove('expanded');
+        btnElement.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
+    } else {
+        content.classList.add('expanded');
+        btnElement.classList.add('expanded');
+        btnElement.innerHTML = 'Read Less <i class="fas fa-chevron-up"></i>';
+    }
+}
+
+// ==================== 3D MOVING BACKGROUND (THREE.JS) ==================== //
+function init3DBackground() {
+    if (typeof THREE === 'undefined') return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    renderer.domElement.style.position = 'fixed';
+    renderer.domElement.style.top = '0';
+    renderer.domElement.style.left = '0';
+    renderer.domElement.style.width = '100vw';
+    renderer.domElement.style.height = '100vh';
+    renderer.domElement.style.zIndex = '-1';
+    renderer.domElement.style.pointerEvents = 'none';
+    
+    document.body.prepend(renderer.domElement);
+
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 800;
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 15;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    
+    const material = new THREE.PointsMaterial({
+        size: 0.008,
+        color: 0x06B6D4,
+        transparent: true,
+        opacity: 0.5,
+        blending: THREE.AdditiveBlending
+    });
+    
+    const particlesMesh = new THREE.Points(particlesGeometry, material);
+    scene.add(particlesMesh);
+    
+    camera.position.z = 4;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    const windowHalfX = window.innerWidth / 2;
+    const windowHalfY = window.innerHeight / 2;
+    
+    document.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX - windowHalfX);
+        mouseY = (event.clientY - windowHalfY);
+    });
+
+    const clock = new THREE.Clock();
+    
+    function animate() {
+        requestAnimationFrame(animate);
+        const elapsedTime = clock.getElapsedTime();
+        
+        targetX = mouseX * 0.001;
+        targetY = mouseY * 0.001;
+        
+        particlesMesh.rotation.y += 0.001;
+        particlesMesh.rotation.x += 0.0005;
+        
+        particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
+        particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
+        
+        particlesMesh.position.y = Math.sin(elapsedTime * 0.3) * 0.15;
+        
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+}
+
+// Initialize 3D UI Effects
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize interactive 3D background
+    init3DBackground();
+    
+    // 2. Initialize Vanilla Tilt for 3D card movement (desktop only)
+    if (typeof VanillaTilt !== 'undefined' && window.innerWidth > 768) {
+        VanillaTilt.init(document.querySelectorAll(".glass-effect"), {
+            max: 8,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.15,
+            scale: 1.02
+        });
+    }
+});
