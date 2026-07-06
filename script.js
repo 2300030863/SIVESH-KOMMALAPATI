@@ -68,21 +68,6 @@ document.addEventListener('scroll', () => {
     });
 });
 
-// ==================== MOBILE MENU TOGGLE ==================== //
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-}
 
 // ==================== THREE.JS SETUP ==================== //
 function setupThreeJS() {
@@ -478,8 +463,8 @@ function init3DBackground() {
     });
 }
 
-// Initialize 3D UI Effects
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize 3D UI Effects and Mobile Nav
+function initUI() {
     // 1. Initialize interactive 3D background
     init3DBackground();
     
@@ -493,4 +478,42 @@ document.addEventListener('DOMContentLoaded', () => {
             scale: 1.02
         });
     }
-});
+
+    // 3. Mobile Navigation Hamburger Menu
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    }
+}
+
+// Execute immediately if DOM is ready, otherwise wait
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUI);
+} else {
+    initUI();
+}
