@@ -1,6 +1,6 @@
 # 📖 Portfolio Documentation Index
 
-Welcome! This is your complete guide to the Sivesh Kommalapati portfolio website.
+Welcome! This is your complete guide to the SIVESH KOMMALAPATI portfolio website.
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## 📋 Project Overview
 
-A complete, professional futuristic portfolio website for **Sivesh Kommalapati - AI Systems & Full Stack Developer**.
+A complete, professional futuristic portfolio website for **KOMMALAPATI SIVESH - AI Systems & Full Stack Developer**.
 
 **Build Date**: May 2024  
 **Status**: Ready for Deployment ✅  

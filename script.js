@@ -511,9 +511,50 @@ function initUI() {
     }
 }
 
+// ==================== PRELOADER ==================== //
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+    
+    document.body.style.overflow = 'hidden';
+    
+    let progress = 0;
+    const progressFill = document.querySelector('.progress-bar-fill');
+    const progressPercent = document.querySelector('.progress-percent');
+    
+    // Simulate loading
+    const loadingInterval = setInterval(() => {
+        progress += Math.floor(Math.random() * 4) + 1; // Slower increment (1 to 4)
+        
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(loadingInterval);
+            
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                document.body.style.overflow = '';
+                
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 800); // Wait a bit longer at 100%
+        }
+        
+        if (progressFill && progressPercent) {
+            progressFill.style.width = `${progress}%`;
+            progressPercent.textContent = `${progress}%`;
+        }
+        
+    }, 150); // Slower interval (150ms)
+}
+
 // Execute immediately if DOM is ready, otherwise wait
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initUI);
+    document.addEventListener('DOMContentLoaded', () => {
+        initPreloader();
+        initUI();
+    });
 } else {
+    initPreloader();
     initUI();
 }
