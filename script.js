@@ -14,7 +14,7 @@ let isDeleting = false;
 
 function typeEffect() {
     const currentPhrase = phrases[phraseIndex];
-    
+
     if (!isDeleting && charIndex < currentPhrase.length) {
         typingElement.textContent += currentPhrase[charIndex];
         charIndex++;
@@ -72,7 +72,7 @@ document.addEventListener('scroll', () => {
 // ==================== THREE.JS SETUP ==================== //
 function setupThreeJS() {
     const container = document.getElementById('canvas-container');
-    
+
     if (!container) return;
 
     // Scene Setup
@@ -161,7 +161,7 @@ function setupThreeJS() {
     // Handle Window Resize
     window.addEventListener('resize', () => {
         if (!container) return;
-        
+
         const width = container.clientWidth;
         const height = container.clientHeight;
 
@@ -343,9 +343,9 @@ console.log('Welcome to Sivesh Kommalapati\'s Portfolio');
 function toggleReadMore(contentId, btnElement) {
     const content = document.getElementById(contentId);
     if (!content) return;
-    
+
     const isExpanded = content.classList.contains('expanded');
-    
+
     if (isExpanded) {
         content.classList.remove('expanded');
         btnElement.classList.remove('expanded');
@@ -364,10 +364,10 @@ function init3DBackground() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
-    
+
     renderer.domElement.style.position = 'fixed';
     renderer.domElement.style.top = '0';
     renderer.domElement.style.left = '0';
@@ -375,19 +375,19 @@ function init3DBackground() {
     renderer.domElement.style.height = '100vh';
     renderer.domElement.style.zIndex = '-1';
     renderer.domElement.style.pointerEvents = 'none';
-    
+
     document.body.prepend(renderer.domElement);
 
     const particlesGeometry = new THREE.BufferGeometry();
     const particlesCount = 800;
     const posArray = new Float32Array(particlesCount * 3);
-    
-    for(let i = 0; i < particlesCount * 3; i++) {
+
+    for (let i = 0; i < particlesCount * 3; i++) {
         posArray[i] = (Math.random() - 0.5) * 15;
     }
-    
+
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    
+
     const material = new THREE.PointsMaterial({
         size: 0.008,
         color: 0x06B6D4,
@@ -395,10 +395,10 @@ function init3DBackground() {
         opacity: 0.5,
         blending: THREE.AdditiveBlending
     });
-    
+
     const particlesMesh = new THREE.Points(particlesGeometry, material);
     scene.add(particlesMesh);
-    
+
     camera.position.z = 4;
 
     let mouseX = 0;
@@ -407,29 +407,29 @@ function init3DBackground() {
     let targetY = 0;
     const windowHalfX = window.innerWidth / 2;
     const windowHalfY = window.innerHeight / 2;
-    
+
     document.addEventListener('mousemove', (event) => {
         mouseX = (event.clientX - windowHalfX);
         mouseY = (event.clientY - windowHalfY);
     });
 
     const clock = new THREE.Clock();
-    
+
     function animate() {
         requestAnimationFrame(animate);
         const elapsedTime = clock.getElapsedTime();
-        
+
         targetX = mouseX * 0.001;
         targetY = mouseY * 0.001;
-        
+
         particlesMesh.rotation.y += 0.001;
         particlesMesh.rotation.x += 0.0005;
-        
+
         particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
         particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
-        
+
         particlesMesh.position.y = Math.sin(elapsedTime * 0.3) * 0.15;
-        
+
         renderer.render(scene, camera);
     }
     animate();
@@ -445,7 +445,7 @@ function init3DBackground() {
 function initUI() {
     // 1. Initialize interactive 3D background
     init3DBackground();
-    
+
     // 2. Initialize Vanilla Tilt for 3D card movement (desktop only)
     if (typeof VanillaTilt !== 'undefined' && window.innerWidth > 768) {
         VanillaTilt.init(document.querySelectorAll(".glass-effect"), {
@@ -460,7 +460,7 @@ function initUI() {
     // 3. Mobile Navigation Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -493,36 +493,36 @@ function initUI() {
 function initPreloader() {
     const preloader = document.getElementById('preloader');
     if (!preloader) return;
-    
+
     document.body.style.overflow = 'hidden';
-    
+
     let progress = 0;
     const progressFill = document.querySelector('.progress-bar-fill');
     const progressPercent = document.querySelector('.progress-percent');
-    
+
     // Simulate loading
     const loadingInterval = setInterval(() => {
         progress += Math.floor(Math.random() * 4) + 1; // Slower increment (1 to 4)
-        
+
         if (progress >= 100) {
             progress = 100;
             clearInterval(loadingInterval);
-            
+
             setTimeout(() => {
                 preloader.classList.add('fade-out');
                 document.body.style.overflow = '';
-                
+
                 setTimeout(() => {
                     preloader.style.display = 'none';
                 }, 500);
             }, 800); // Wait a bit longer at 100%
         }
-        
+
         if (progressFill && progressPercent) {
             progressFill.style.width = `${progress}%`;
             progressPercent.textContent = `${progress}%`;
         }
-        
+
     }, 150); // Slower interval (150ms)
 }
 
@@ -544,9 +544,9 @@ function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
     if (!contactForm) return;
 
-    contactForm.addEventListener('submit', async function(e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
@@ -555,7 +555,7 @@ function initContactForm() {
         const formData = new FormData(contactForm);
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
-        
+
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
@@ -565,15 +565,15 @@ function initContactForm() {
                 },
                 body: json
             });
-            
+
             const data = await response.json();
-            
+
             if (data.success) {
                 submitBtn.textContent = 'Message Sent Successfully!';
                 submitBtn.style.background = '#059669'; // Green success color
                 submitBtn.style.borderColor = '#059669';
                 contactForm.reset();
-                
+
                 setTimeout(() => {
                     submitBtn.textContent = originalText;
                     submitBtn.style.background = '';
@@ -585,7 +585,7 @@ function initContactForm() {
                 submitBtn.textContent = 'Error: Check console';
                 submitBtn.style.background = '#DC2626'; // Red error color
                 submitBtn.style.borderColor = '#DC2626';
-                
+
                 setTimeout(() => {
                     submitBtn.textContent = originalText;
                     submitBtn.style.background = '';
@@ -596,7 +596,7 @@ function initContactForm() {
         } catch (error) {
             console.error("Network error:", error);
             submitBtn.textContent = 'Network Error';
-            
+
             setTimeout(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -613,7 +613,7 @@ function initContactAIBall() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    
+
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
@@ -658,7 +658,7 @@ function initContactAIBall() {
         // Rotate the wireframe outer shell
         sphere.rotation.x += 0.005;
         sphere.rotation.y += 0.005;
-        
+
         // Rotate the solid inner core in the opposite direction
         core.rotation.x -= 0.01;
         core.rotation.y -= 0.005;
@@ -686,3 +686,19 @@ if (document.readyState === 'loading') {
 } else {
     initContactAIBall();
 }
+
+// ==================== WELCOME TOAST LOGIC ==================== //
+window.addEventListener('load', () => {
+    // Show toast after a slight delay so the user notices it after page load
+    setTimeout(() => {
+        const toast = document.getElementById('welcome-toast');
+        if (toast) {
+            toast.classList.add('show');
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+    }, 8000);
+});
