@@ -407,50 +407,99 @@ p {
     max-width: 500px;
 }
 
+.profile-glow-ring {
+    position: absolute;
+    width: 105%;
+    height: 105%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0%, #06B6D4 25%, transparent 50%, #3B82F6 75%, transparent 100%);
+    animation: spin 10s linear infinite;
+    z-index: 1;
+    filter: blur(10px);
+}
+
 .hero-profile-img {
     width: 100%;
     max-width: 380px;
     border-radius: 50%;
-    box-shadow: 0 0 30px rgba(6,182,212,.4);
-    animation: floatProfile 6s ease-in-out infinite, glow 4s ease-in-out infinite alternate;
+    box-shadow: 0 0 40px rgba(6,182,212,.4);
+    animation: floatProfile 6s ease-in-out infinite;
     object-fit: cover;
     aspect-ratio: 1 / 1;
-    border: 4px solid #06B6D4;
+    border: 4px solid #1E293B;
     position: relative;
     z-index: 2;
 }
 
+.floating-tech {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #06B6D4;
+    z-index: 3;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.tech-1 { top: 10%; left: 0; animation: float 4s ease-in-out infinite; }
+.tech-2 { bottom: 20%; right: -5%; animation: float 5s ease-in-out infinite 1s; color: #F89820; }
+.tech-3 { bottom: 10%; left: 10%; animation: float 6s ease-in-out infinite 2s; color: #3B82F6; }
+
 .hero-text {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.greeting-badge {
+    background: rgba(6, 182, 212, 0.1);
+    color: #06B6D4;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    display: inline-block;
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
+    font-size: 4rem;
+    line-height: 1.1;
     margin-bottom: 1rem;
     color: #F8FAFC;
+    font-weight: 800;
 }
 
-.hero-title .accent {
-    color: #06B6D4;
-    text-shadow: 0 0 8px rgba(6,182,212,.3);
+.gradient-text {
+    background: linear-gradient(to right, #06B6D4, #3B82F6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #3B82F6;
+    color: #94A3B8;
     margin-bottom: 1.5rem;
     min-height: 30px;
 }
 
 .hero-description {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #94A3B8;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    line-height: 1.6;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    line-height: 1.7;
+    margin-left: 0;
 }
 
 .hero-buttons {
@@ -1489,4 +1538,52 @@ section {
     left: 0;
     top: 2px;
     font-size: 0.9rem;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-image {
+  animation: float 4s ease-in-out infinite;
+}
+
+.speech-bubble {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  background: linear-gradient(135deg, #06B6D4, #3B82F6);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, floatBubble 3s ease-in-out infinite;
+  z-index: 10;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #3B82F6 transparent transparent transparent;
+  display: block;
+  width: 0;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-5px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
 }

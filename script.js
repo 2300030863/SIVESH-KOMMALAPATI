@@ -604,3 +604,85 @@ function initContactForm() {
         }
     });
 }
+
+// ==================== CONTACT 3D AI BALL ==================== //
+function initContactAIBall() {
+    const container = document.getElementById('contact-3d-model');
+    if (!container || typeof THREE === 'undefined') return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    // Create a high-tech glowing ball
+    const geometry = new THREE.IcosahedronGeometry(2, 2); // Round crystal/ball shape
+    const material = new THREE.MeshPhongMaterial({
+        color: 0x06B6D4,
+        emissive: 0x005577,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.8
+    });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    // Add an inner core
+    const coreGeo = new THREE.IcosahedronGeometry(1.2, 3);
+    const coreMat = new THREE.MeshPhongMaterial({
+        color: 0x3B82F6,
+        emissive: 0x3B82F6,
+        shininess: 100
+    });
+    const core = new THREE.Mesh(coreGeo, coreMat);
+    scene.add(core);
+
+    // Add lighting
+    const light1 = new THREE.PointLight(0x06B6D4, 2, 50);
+    light1.position.set(5, 5, 5);
+    scene.add(light1);
+
+    const light2 = new THREE.PointLight(0x3B82F6, 2, 50);
+    light2.position.set(-5, -5, 5);
+    scene.add(light2);
+
+    camera.position.z = 5;
+
+    // Animation Loop
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Rotate the wireframe outer shell
+        sphere.rotation.x += 0.005;
+        sphere.rotation.y += 0.005;
+        
+        // Rotate the solid inner core in the opposite direction
+        core.rotation.x -= 0.01;
+        core.rotation.y -= 0.005;
+
+        // Add a floating bobbing effect
+        sphere.position.y = Math.sin(Date.now() * 0.002) * 0.2;
+        core.position.y = Math.sin(Date.now() * 0.002) * 0.2;
+
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle Resize
+    window.addEventListener('resize', () => {
+        if (!container) return;
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+}
+
+// Initialize it on load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactAIBall);
+} else {
+    initContactAIBall();
+}

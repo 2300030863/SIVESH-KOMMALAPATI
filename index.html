@@ -7,12 +7,11 @@
     <title>SIVESH KOMMALAPATI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=19">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=21">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -90,29 +89,25 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-bg-glow"></div>
         <div class="hero-content">
-            <div class="hero-image-container">
-                <img src="assets/images/profile.jpeg" alt="Sivesh Kommalapati" class="hero-profile-img"
-                    onerror="this.src='https://via.placeholder.com/400?text=Upload+Profile+Image'">
-            </div>
             <div class="hero-text">
+                <div class="greeting-badge">👋 Welcome to my portfolio</div>
                 <h1 class="hero-title">
-                    HELLO, I'M <br><span class="accent">SIVESH</span> KOMMALAPATI
+                    Building the Future with <br><span class="gradient-text">AI & Code</span>
                 </h1>
                 <p class="hero-subtitle">
-                    <span class="typing-effect"></span>
+                    I'm Sivesh Kommalapati - <span class="typing-effect"></span>
                 </p>
                 <p class="hero-description">
-                    Passionate Computer Science student specializing in AI and Full Stack Development using Java, Spring
-                    Boot, React, and MySQL.
+                    Passionate Computer Science student specializing in AI and Full Stack Development using Java, Spring Boot, React, and MySQL. I build scalable intelligent systems.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="scrollToSection('contact')">Get In Touch</button>
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">Get In Touch <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
                     <a href="#projects" class="btn btn-secondary">View Projects</a>
                 </div>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/sivesh-kommalapati-75149232b/" target="_blank"
-                        class="social-link">
+                    <a href="https://www.linkedin.com/in/sivesh-kommalapati-75149232b/" target="_blank" class="social-link">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="https://github.com/2300030863" target="_blank" class="social-link">
@@ -122,6 +117,15 @@
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="profile-glow-ring"></div>
+                <img src="assets/images/profile.jpeg" alt="Sivesh Kommalapati" class="hero-profile-img"
+                    onerror="this.src='https://via.placeholder.com/400?text=Upload+Profile+Image'">
+                
+                <div class="floating-tech tech-1"><i class="fab fa-react"></i></div>
+                <div class="floating-tech tech-2"><i class="fab fa-java"></i></div>
+                <div class="floating-tech tech-3"><i class="fas fa-database"></i></div>
             </div>
         </div>
     </section>
@@ -643,8 +647,9 @@
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
             <div class="contact-content">
-                <div class="contact-info glass-effect" style="display: flex; justify-content: center; align-items: center; padding: 2rem; border-radius: 20px;">
-                    <img src="assets/images/contact-person.png" alt="Let's Communicate" style="max-width: 100%; height: auto; border-radius: 12px; object-fit: contain;">
+                <div class="contact-info" style="display: flex; justify-content: center; align-items: center; position: relative; min-height: 350px;">
+                    <div class="speech-bubble" style="top: 15%; right: 10%;">Hello! 👋</div>
+                    <img src="assets/images/contact-vector.png" alt="Let's Communicate" class="floating-image" style="max-width: 100%; height: auto; max-height: 350px; border-radius: 12px; object-fit: contain;">
                 </div>
 
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form glass-effect">
