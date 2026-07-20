@@ -553,8 +553,76 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initPreloader();
         initUI();
+        initContactForm();
     });
 } else {
     initPreloader();
     initUI();
+    initContactForm();
+}
+
+// ==================== CONTACT FORM AJAX ==================== //
+function initContactForm() {
+    const contactForm = document.querySelector('.contact-form');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                submitBtn.textContent = 'Message Sent Successfully!';
+                submitBtn.style.background = '#059669'; // Green success color
+                submitBtn.style.borderColor = '#059669';
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.disabled = false;
+                }, 5000);
+            } else {
+                console.error("Form error:", data);
+                submitBtn.textContent = 'Error: Check console';
+                submitBtn.style.background = '#DC2626'; // Red error color
+                submitBtn.style.borderColor = '#DC2626';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.disabled = false;
+                }, 5000);
+            }
+        } catch (error) {
+            console.error("Network error:", error);
+            submitBtn.textContent = 'Network Error';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
+        }
+    });
 }
