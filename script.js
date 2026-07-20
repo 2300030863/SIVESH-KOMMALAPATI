@@ -245,28 +245,6 @@ gsap.utils.toArray('.timeline-item').forEach((element, index) => {
     });
 });
 
-// ==================== FORM HANDLING ==================== //
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const submitBtn = contactForm.querySelector('.btn');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.textContent = '✓ Message Sent!';
-        submitBtn.style.background = 'linear-gradient(135deg, #06B6D4, #3B82F6)';
-        submitBtn.disabled = true;
-
-        contactForm.reset();
-
-        setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-        }, 4000);
-    });
-}
 
 // ==================== PARALLAX EFFECT ==================== //
 document.addEventListener('scroll', () => {
