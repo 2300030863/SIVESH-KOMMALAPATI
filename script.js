@@ -704,3 +704,81 @@ window.addEventListener('load', () => {
         }
     }, 8000);
 });
+
+// ==================== THEME TOGGLE LOGIC ==================== //
+function initThemeToggle() {
+    const themeBtn = document.getElementById('theme-btn');
+    const themeIcon = document.getElementById('theme-icon');
+    if (!themeBtn || !themeIcon) return;
+
+    // Check for saved theme preference in localStorage
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    
+    // Apply saved theme or default to dark mode (which is default CSS)
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+
+    themeBtn.addEventListener('click', () => {
+        // Start animation
+        themeBtn.classList.add('animating');
+
+        setTimeout(() => {
+            // Toggle theme
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+
+            // Toggle icon
+            if (isLightMode) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('portfolio-theme', 'light');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('portfolio-theme', 'dark');
+            }
+
+            // Remove animation class after a short delay to allow the new icon to fade in
+            setTimeout(() => {
+                themeBtn.classList.remove('animating');
+            }, 50);
+        }, 250); // Wait for half the transition time before swapping
+    });
+}
+
+// Initialize theme toggle
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+} else {
+    initThemeToggle();
+}
+
+// ==================== VISITOR COUNTER LOGIC ==================== //
+function initVisitorCounter() {
+    const visitorCountEl = document.getElementById('visitor-count');
+    if (!visitorCountEl) return;
+
+    fetch('https://api.counterapi.dev/v1/sivesh/portfolio/up')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.count) {
+                visitorCountEl.textContent = data.count;
+            } else {
+                visitorCountEl.textContent = '1';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching visitor count:', error);
+            visitorCountEl.textContent = '1';
+        });
+}
+
+// Initialize visitor counter
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVisitorCounter);
+} else {
+    initVisitorCounter();
+}

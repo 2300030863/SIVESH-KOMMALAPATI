@@ -35,7 +35,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=21">
+    <link rel="stylesheet" href="style.css?v=23">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
@@ -44,6 +44,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231E293B'/><text x='50' y='72' font-family='sans-serif' font-size='65' font-weight='bold' fill='%2306B6D4' text-anchor='middle'>S</text></svg>">
+        
+    <!-- Google Analytics (Placeholder) -->
+    <!-- Replace 'G-XXXXXXXXXX' with your actual Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 
 <body>
@@ -107,6 +118,9 @@
                 <a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a>
                 <a href="#resume" class="nav-link"><i class="fas fa-file-alt"></i> Resume</a>
                 <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+            <div class="theme-toggle" id="theme-btn" title="Toggle Light/Dark Mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -706,8 +720,13 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
             <p>&copy; 2024 Sivesh Kommalapati. All rights reserved.</p>
+            <div class="visitor-counter glass-effect" style="padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; color: var(--text-light); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <i class="fas fa-eye" style="color: var(--accent-cyan);"></i>
+                <span>Visitors: </span>
+                <span id="visitor-count" style="font-weight: bold; font-family: 'Outfit', sans-serif;">...</span>
+            </div>
         </div>
     </footer>
 
@@ -716,7 +735,7 @@
         👋 Welcome to my portfolio
     </div>
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=15"></script>
 </body>
 
 </html>
