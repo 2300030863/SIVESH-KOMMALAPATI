@@ -485,7 +485,9 @@ p {
 .gradient-text {
     background: linear-gradient(to right, #06B6D4, #3B82F6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
     display: inline-block;
 }
 

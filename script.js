@@ -248,21 +248,16 @@ gsap.utils.toArray('.timeline-item').forEach((element, index) => {
 
 // ==================== PARALLAX EFFECT ==================== //
 document.addEventListener('scroll', () => {
-    // Disable parallax on mobile to prevent cards from colliding vertically
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll('.about-card, .skill-category, .project-card').forEach(el => {
-            el.style.transform = '';
-        });
-        return;
-    }
-
     const scrollPosition = window.pageYOffset;
     const elements = document.querySelectorAll('.about-card, .skill-category, .project-card');
+    const isMobile = window.innerWidth <= 768;
 
     elements.forEach((element, index) => {
         // Prevent excessive translation for items lower on the page
+        // Use a much smaller multiplier on mobile to avoid overlapping
+        const multiplier = isMobile ? 0.01 : 0.03;
         const offset = scrollPosition * (0.5 + (index % 5) * 0.1);
-        element.style.transform = `translateY(${offset * 0.03}px)`;
+        element.style.transform = `translateY(${offset * multiplier}px)`;
     });
 });
 
@@ -412,6 +407,13 @@ function init3DBackground() {
         mouseX = (event.clientX - windowHalfX);
         mouseY = (event.clientY - windowHalfY);
     });
+
+    document.addEventListener('touchmove', (event) => {
+        if (event.touches.length > 0) {
+            mouseX = (event.touches[0].clientX - windowHalfX);
+            mouseY = (event.touches[0].clientY - windowHalfY);
+        }
+    }, { passive: true });
 
     const clock = new THREE.Clock();
 
